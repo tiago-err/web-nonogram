@@ -39,6 +39,7 @@ export function areHintsFull(grid: number[][], hint: number[], placement: number
 function generateGrid(size: number): number[][] {
 	const grid = [];
 
+	/* eslint-disable @typescript-eslint/no-unused-vars */
 	for (const i of Array(size).keys()) {
 		const line = [];
 		for (const j of Array(size).keys()) {
@@ -46,6 +47,7 @@ function generateGrid(size: number): number[][] {
 		}
 		grid.push(line);
 	}
+	/* eslint-enable @typescript-eslint/no-unused-vars */
 
 	return grid;
 }

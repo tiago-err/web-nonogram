@@ -19,7 +19,7 @@ export function Nonogram(props: {grid: number[][]; lineHints: number[][]; column
 				setGameWon(true);
 			}, 500);
 		}
-	}, [selected]);
+	}, [selected, props.grid]);
 
 	function onClickItem(e: any) {
 		const className = typeof e.target.className === "string" ? e.target.className : e.target.parentElement.classList[0];

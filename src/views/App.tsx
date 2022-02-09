@@ -1,27 +1,21 @@
-import React, {useEffect, useState} from "react";
-import logo from "../logo.svg";
+import {useEffect, useState} from "react";
 import "../App.css";
 import {motion} from "framer-motion";
 import {SIZES} from "../constants";
 import {generateNonogram} from "../utils/nonogramGenerator";
 import {Nonogram} from "../components/Nonogram";
 import Icon from "@mdi/react";
-import {mdiKeyboardBackspace, mdiClose} from "@mdi/js";
+import {mdiKeyboardBackspace} from "@mdi/js";
 
 function App() {
 	const [grid, setGrid] = useState<{grid: number[][]; lineHints: number[][]; columnHints: number[][]} | undefined>(undefined);
 	const [showGrid, setShowGrid] = useState(false);
 	const [showSizes, setShowSizes] = useState(true);
-	const [firstLoad, setFirstLoad] = useState(false);
 
 	useEffect(() => {
-		if (!firstLoad) {
-			setFirstLoad(true);
-		} else {
-			setTimeout(() => {
-				setShowSizes((previous) => !previous);
-			}, 301 * SIZES.length);
-		}
+		setTimeout(() => {
+			setShowSizes(!showGrid);
+		}, 301 * SIZES.length);
 	}, [showGrid]);
 
 	function selectSize(e: any): void {
